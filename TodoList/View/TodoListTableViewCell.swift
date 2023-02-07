@@ -16,7 +16,7 @@ class TodoListTableViewCell: UITableViewCell {
         $0.font = UIFont.systemFont(ofSize: 15)
     }
     
-    private let checkImageView = UIImageView().then {
+    let checkImageView = UIImageView().then {
         $0.image = UIImage(systemName: "circle")
     }
     
@@ -44,8 +44,8 @@ class TodoListTableViewCell: UITableViewCell {
         }
         
         self.contentView.snp.makeConstraints {
-            $0.top.equalTo(checkImageView.snp.top).offset(16)
-            $0.bottom.equalTo(checkImageView.snp.bottom).offset(16)
+            $0.top.equalTo(checkImageView.snp.top).inset(-16)
+            $0.bottom.equalTo(checkImageView.snp.bottom).inset(-16)
         }
     }
 }

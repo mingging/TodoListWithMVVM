@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     
     private func reloadTableView() {
         todoListTableView.reloadData()
+        emptyView.alpha = todoListViewModel.items.isEmpty ? 1 : 0
     }
     
     // MARK: - UI
@@ -63,11 +64,10 @@ class ViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        if todoListViewModel.items.isEmpty {
-            self.view.addSubview(emptyView)
-            emptyView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
+        self.view.addSubview(emptyView)
+        emptyView.alpha = todoListViewModel.items.isEmpty ? 1 : 0
+        emptyView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
@@ -79,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = todoListViewModel.items[indexPath.row]
-        let identifier = "LIST_\(indexPath.row)_\(item.title ?? "")"
+        let identifier = "LIST_\(indexPath.row)_\(item)"
         
         if let reuseCell = tableView.dequeueReusableCell(withIdentifier: identifier) {
             return reuseCell
@@ -87,7 +87,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = TodoListTableViewCell.init(reuseIdentifier: identifier)
         cell.titleLabel.text = item.title ?? ""
+        cell.checkImageView.image = UIImage(systemName: item.isCompleted ? "checkmark.circle" : "circle")
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = todoListViewModel.items[indexPath.row]
+        todoListViewModel.updateItem(item: item)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            todoListViewModel.deleteItem(index: indexPath.row)
+        }
     }
 }

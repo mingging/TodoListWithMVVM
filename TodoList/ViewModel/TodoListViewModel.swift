@@ -47,6 +47,18 @@ class TodoListViewModel: NSObject {
         }
     }
     
+    /// 아이템 체크하기
+    func updateItem(item: TodoListModel) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index] = item.updateCompletion()
+        }
+    }
+    
+    /// 아이템 삭제
+    func deleteItem(index: Int) {
+        items.remove(at: index)
+    }
+    
     func updateDataSource() {
         self.reloadTableView?()
     }
