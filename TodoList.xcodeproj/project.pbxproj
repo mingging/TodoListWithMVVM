@@ -11,6 +11,11 @@
 		240F11E62990E6AF004C2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240F11E52990E6AF004C2C56 /* ViewController.swift */; };
 		240F11EB2990E6B1004C2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240F11EA2990E6B1004C2C56 /* Assets.xcassets */; };
 		240F11EE2990E6B1004C2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240F11EC2990E6B1004C2C56 /* LaunchScreen.storyboard */; };
+		244FB7772991E93200045E3B /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FB7762991E93200045E3B /* TodoListViewModel.swift */; };
+		244FB7792991E95C00045E3B /* TodoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FB7782991E95C00045E3B /* TodoListModel.swift */; };
+		244FB77B2991EBA800045E3B /* NoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FB77A2991EBA800045E3B /* NoListView.swift */; };
+		244FB77D2991F0A900045E3B /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FB77C2991F0A900045E3B /* AddListViewController.swift */; };
+		244FB77F2992137D00045E3B /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FB77E2992137D00045E3B /* TodoListTableViewCell.swift */; };
 		80AE39EADA602C1ACF6C4CC9 /* Pods_TodoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA2EE584F969EB287F36EBD /* Pods_TodoList.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +26,11 @@
 		240F11EA2990E6B1004C2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		240F11ED2990E6B1004C2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		240F11EF2990E6B1004C2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		244FB7762991E93200045E3B /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		244FB7782991E95C00045E3B /* TodoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListModel.swift; sourceTree = "<group>"; };
+		244FB77A2991EBA800045E3B /* NoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoListView.swift; sourceTree = "<group>"; };
+		244FB77C2991F0A900045E3B /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		244FB77E2992137D00045E3B /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		31CD2139E845402E0A99970C /* Pods-TodoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoList.debug.xcconfig"; path = "Target Support Files/Pods-TodoList/Pods-TodoList.debug.xcconfig"; sourceTree = "<group>"; };
 		92620ED6A2B0AD053A722B70 /* Pods-TodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoList.release.xcconfig"; path = "Target Support Files/Pods-TodoList/Pods-TodoList.release.xcconfig"; sourceTree = "<group>"; };
 		FAA2EE584F969EB287F36EBD /* Pods_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +80,7 @@
 		240F11F52990E7D9004C2C56 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				244FB7782991E95C00045E3B /* TodoListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,6 +90,9 @@
 			children = (
 				240F11E12990E6AF004C2C56 /* AppDelegate.swift */,
 				240F11E52990E6AF004C2C56 /* ViewController.swift */,
+				244FB77C2991F0A900045E3B /* AddListViewController.swift */,
+				244FB77A2991EBA800045E3B /* NoListView.swift */,
+				244FB77E2992137D00045E3B /* TodoListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -86,6 +100,7 @@
 		240F11F72990E7E4004C2C56 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				244FB7762991E93200045E3B /* TodoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -106,7 +121,6 @@
 				31CD2139E845402E0A99970C /* Pods-TodoList.debug.xcconfig */,
 				92620ED6A2B0AD053A722B70 /* Pods-TodoList.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -232,7 +246,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244FB77D2991F0A900045E3B /* AddListViewController.swift in Sources */,
 				240F11E62990E6AF004C2C56 /* ViewController.swift in Sources */,
+				244FB77F2992137D00045E3B /* TodoListTableViewCell.swift in Sources */,
+				244FB7792991E95C00045E3B /* TodoListModel.swift in Sources */,
+				244FB77B2991EBA800045E3B /* NoListView.swift in Sources */,
+				244FB7772991E93200045E3B /* TodoListViewModel.swift in Sources */,
 				240F11E22990E6AF004C2C56 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,11 +393,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TodoList/Info.plist;
+				INFOPLIST_FILE = TodoList/Assets/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,11 +421,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TodoList/Info.plist;
+				INFOPLIST_FILE = TodoList/Assets/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

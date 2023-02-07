@@ -7,5 +7,5 @@ target 'TodoList' do
 
   # Pods for TodoList
   pod 'Then'
-
+  pod 'SnapKit', '~> 5.6.0'
 end
