@@ -59,6 +59,14 @@ class TodoListViewModel: NSObject {
         items.remove(at: index)
     }
     
+    /// 아이템 이동
+    func moveItem(item: TodoListModel, destinationIndex: Int) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items.remove(at: index)
+            items.insert(item, at: destinationIndex)
+        }
+    }
+    
     func updateDataSource() {
         self.reloadTableView?()
     }

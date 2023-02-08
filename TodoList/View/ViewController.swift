@@ -18,6 +18,12 @@ class ViewController: UIViewController {
     private let todoListTableView = UITableView().then {
         $0.backgroundColor = .white
     }
+    
+    private lazy var editButton = UIButton().then {
+        $0.setTitle("수정", for: .normal)
+        $0.setTitleColor(.red, for: .normal)
+        $0.addTarget(self, action: #selector(selectEditButton), for: .touchUpInside)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,18 @@ class ViewController: UIViewController {
         let addListViewController = AddListViewController(viewModel: todoListViewModel)
         self.navigationController?.pushViewController(addListViewController, animated: true)
     }
+    
+    @objc func selectEditButton() {
+        if todoListTableView.isEditing {
+            editButton.setTitle("수정", for: .normal)
+            todoListTableView.setEditing(false, animated: true)
+        } else {
+            editButton.setTitle("완료", for: .normal)
+            todoListTableView.setEditing(true, animated: true)
+        }
+    }
+    
+    // MARK: - Function
     
     private func configurationViewModel() {
         todoListViewModel.reloadTableView = reloadTableView
@@ -52,6 +70,9 @@ class ViewController: UIViewController {
         
         let rightBarButton = UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(selectAddListButton))
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        let leftBarButton = UIBarButtonItem(customView: editButton)
+        self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
     private func setUpUI() {
@@ -101,5 +122,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             todoListViewModel.deleteItem(index: indexPath.row)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = todoListViewModel.items[sourceIndexPath.row]
+        todoListViewModel.moveItem(item: item, destinationIndex: destinationIndexPath.row)
     }
 }

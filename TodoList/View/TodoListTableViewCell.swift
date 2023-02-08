@@ -42,10 +42,5 @@ class TodoListTableViewCell: UITableViewCell {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(checkImageView.snp.trailing).offset(10)
         }
-        
-        self.contentView.snp.makeConstraints {
-            $0.top.equalTo(checkImageView.snp.top).inset(-16)
-            $0.bottom.equalTo(checkImageView.snp.bottom).inset(-16)
-        }
     }
 }
